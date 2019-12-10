@@ -4,7 +4,7 @@
 #
 Name     : pathspec
 Version  : 0.6.0
-Release  : 4
+Release  : 5
 URL      : https://files.pythonhosted.org/packages/7a/68/5902e8cd7f7b17c5879982a3a3ee2ad0c3b92b80c79989a2d3e1ca8d29e1/pathspec-0.6.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/7a/68/5902e8cd7f7b17c5879982a3a3ee2ad0c3b92b80c79989a2d3e1ca8d29e1/pathspec-0.6.0.tar.gz
 Summary  : Utility library for gitignore style pattern matching of file paths.
@@ -16,12 +16,12 @@ Requires: pathspec-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-*pathspec*: Path Specification
 ==============================
-*pathspec* is a utility library for pattern matching of file paths. So
-far this only includes Git's wildmatch pattern matching which itself is
-derived from Rsync's wildmatch. Git uses wildmatch for its `gitignore`_
-files.
+        
+        *pathspec* is a utility library for pattern matching of file paths. So
+        far this only includes Git's wildmatch pattern matching which itself is
+        derived from Rsync's wildmatch. Git uses wildmatch for its `gitignore`_
+        files.
 
 %package license
 Summary: license components for the pathspec package.
@@ -51,14 +51,14 @@ python3 components for the pathspec package.
 
 %prep
 %setup -q -n pathspec-0.6.0
+cd %{_builddir}/pathspec-0.6.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570195143
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1576012688
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -74,12 +74,12 @@ python3 setup.py build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
+PYTHONPATH=%{buildroot}$(python -c "import sys; print(sys.path[-1])") python setup.py test
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pathspec
-cp LICENSE %{buildroot}/usr/share/package-licenses/pathspec/LICENSE
+cp %{_builddir}/pathspec-0.6.0/LICENSE %{buildroot}/usr/share/package-licenses/pathspec/9744cedce099f727b327cd9913a1fdc58a7f5599
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -90,7 +90,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pathspec/LICENSE
+/usr/share/package-licenses/pathspec/9744cedce099f727b327cd9913a1fdc58a7f5599
 
 %files python
 %defattr(-,root,root,-)
