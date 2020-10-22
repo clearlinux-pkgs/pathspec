@@ -4,7 +4,7 @@
 #
 Name     : pathspec
 Version  : 0.8.0
-Release  : 11
+Release  : 12
 URL      : https://files.pythonhosted.org/packages/93/9c/4bb0a33b0ec07d2076f0b3d7c6aae4dad0a99f9a7a14f7f7ff6f4ed7fa38/pathspec-0.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/93/9c/4bb0a33b0ec07d2076f0b3d7c6aae4dad0a99f9a7a14f7f7ff6f4ed7fa38/pathspec-0.8.0.tar.gz
 Summary  : Utility library for gitignore style pattern matching of file paths.
@@ -16,12 +16,12 @@ Requires: pathspec-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-*pathspec*: Path Specification
 ==============================
-*pathspec* is a utility library for pattern matching of file paths. So
-far this only includes Git's wildmatch pattern matching which itself is
-derived from Rsync's wildmatch. Git uses wildmatch for its `gitignore`_
-files.
+        
+        *pathspec* is a utility library for pattern matching of file paths. So
+        far this only includes Git's wildmatch pattern matching which itself is
+        derived from Rsync's wildmatch. Git uses wildmatch for its `gitignore`_
+        files.
 
 %package license
 Summary: license components for the pathspec package.
@@ -59,15 +59,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586446789
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603398050
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
