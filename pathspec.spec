@@ -4,7 +4,7 @@
 #
 Name     : pathspec
 Version  : 0.8.1
-Release  : 17
+Release  : 18
 URL      : https://files.pythonhosted.org/packages/b7/64/e097eea8dcd2b2f7df6e4425fc98e7494e37b1a6e149603c31d327080a05/pathspec-0.8.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b7/64/e097eea8dcd2b2f7df6e4425fc98e7494e37b1a6e149603c31d327080a05/pathspec-0.8.1.tar.gz
 Summary  : Utility library for gitignore style pattern matching of file paths.
